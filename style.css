@@ -14,6 +14,16 @@ html, body {
   margin: 0;
 }
 
+/*
+  Without this, ID selectors like #buzzers below (display: flex) beat the
+  browser's built-in [hidden] { display: none } rule on specificity,
+  silently defeating element.hidden = true in JavaScript. This makes
+  hidden always win, regardless of what any other rule says.
+*/
+[hidden] {
+  display: none !important;
+}
+
 body {
   display: flex;
   flex-direction: column;
