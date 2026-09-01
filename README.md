@@ -1,4 +1,4 @@
-# Jeopardy — Web Edition (no server required)
+# Trivia — Web Edition (no server required)
 
 A fully client-side, offline version that runs by just double-clicking
 `index.html` — no local server, no build step, no internet connection
