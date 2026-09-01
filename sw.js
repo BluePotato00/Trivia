@@ -1,7 +1,7 @@
 // Bumping this version string forces the service worker to re-cache
 // everything on next load — do that if you regenerate clues_data.js
 // and want the home-screen app to pick up the new data.
-const CACHE_NAME = "jeopardy-cache-v1";
+const CACHE_NAME = "jeopardy-cache-v2";
 
 const FILES_TO_CACHE = [
   "./",
