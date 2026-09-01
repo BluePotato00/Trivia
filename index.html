@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Jeopardy</title>
+<link rel="stylesheet" href="style.css">
+
+<!-- PWA / iOS "Add to Home Screen" support -->
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icon-180.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#0400B0">
+</head>
+<body>
+
+  <div id="clueArea">
+    <div id="category">CATEGORY</div>
+    <div id="value">$000</div>
+    <div id="clueText">Clue text goes here</div>
+    <div id="solution" hidden>Solution goes here</div>
+  </div>
+
+  <div id="controlsArea">
+    <div id="scoreRow">
+      <div id="scoreP1">Player 1: $0</div>
+      <button id="resetBtn">Reset Game</button>
+      <div id="scoreP2">Player 2: $0</div>
+    </div>
+
+    <div id="countdown" hidden>10</div>
+    <div id="status" hidden></div>
+
+    <div id="buttonArea">
+      <div id="buzzers" hidden>
+        <button id="buzzP1" class="buzzBtn buzzP1">PLAYER 1<br>BUZZ IN (Z)</button>
+        <button id="buzzP2" class="buzzBtn buzzP2">PLAYER 2<br>BUZZ IN (M)</button>
+      </div>
+      <button id="revealBtn" class="wideBtn" hidden>REVEAL SOLUTION</button>
+      <div id="correctIncorrect" hidden>
+        <button id="correctBtn" class="halfBtn correctBtn">CORRECT</button>
+        <button id="incorrectBtn" class="halfBtn incorrectBtn">INCORRECT</button>
+      </div>
+      <button id="nextBtn" class="wideBtn" hidden>NEXT CLUE</button>
+    </div>
+  </div>
+
+  <!--
+    clues_manifest.js just lists the part filenames; game.js loads
+    each part dynamically at startup. See convert_clues_to_js.py.
+  -->
+  <script src="clues_manifest.js"></script>
+  <script src="game.js"></script>
+
+  <script>
+    // Caches everything for offline use after the first (HTTPS) load.
+    // Fails silently over plain HTTP — that's expected and fine; the
+    // game still works, it just won't be cached for offline use yet.
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", function () {
+        navigator.serviceWorker.register("sw.js").catch(function (err) {
+          console.warn("Service worker registration skipped:", err);
+        });
+      });
+    }
+  </script>
+</body>
+</html>

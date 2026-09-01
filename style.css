@@ -1,0 +1,155 @@
+:root {
+  --blue: #0400B0;
+  --blue-dark: #02005E;
+  --gold: #FFCC00;
+  --white: #FFFFFF;
+  --correct-green: #1F8A3B;
+  --incorrect-red: #B00020;
+  --buzz1: #1E63C4;
+  --buzz2: #C4341E;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  font-family: -apple-system, "Helvetica Neue", Arial, sans-serif;
+  overflow: hidden;
+}
+
+#clueArea {
+  flex: 55;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--blue);
+  color: var(--white);
+  padding: 32px;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+#category {
+  font-size: 1.8rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+#value {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: var(--gold);
+  margin-top: 4px;
+}
+
+#clueText {
+  font-size: 2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-top: 20px;
+  max-width: 900px;
+}
+
+#solution {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-top: 16px;
+  max-width: 900px;
+}
+
+#controlsArea {
+  flex: 45;
+  display: flex;
+  flex-direction: column;
+  background: var(--blue-dark);
+  padding: 16px;
+  box-sizing: border-box;
+}
+
+#scoreRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+#scoreP1, #scoreP2 {
+  flex: 1;
+  text-align: center;
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: var(--white);
+}
+
+#resetBtn {
+  padding: 8px 12px;
+  font-size: 0.8rem;
+  background: var(--blue);
+  color: var(--white);
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+#countdown {
+  font-size: 3rem;
+  font-weight: bold;
+  color: var(--gold);
+  text-align: center;
+  margin-top: 4px;
+}
+
+#status {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--white);
+  text-align: center;
+  margin-top: 4px;
+}
+
+#buttonArea {
+  flex: 1;
+  display: flex;
+  margin-top: 16px;
+}
+
+#buzzers, #correctIncorrect {
+  display: flex;
+  gap: 16px;
+  width: 100%;
+}
+
+.buzzBtn, .halfBtn, .wideBtn {
+  flex: 1;
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: var(--white);
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.wideBtn {
+  width: 100%;
+  background: var(--blue);
+  color: var(--gold);
+}
+
+.buzzP1 { background: var(--buzz1); }
+.buzzP2 { background: var(--buzz2); }
+.correctBtn { background: var(--correct-green); }
+.incorrectBtn { background: var(--incorrect-red); }
+
+button:hover {
+  filter: brightness(1.1);
+}
+button:active {
+  filter: brightness(0.9);
+}

@@ -1,0 +1,17 @@
+Run convert_clues_to_js.py against your existing corrected clues.db to
+generate the clue data files here:
+
+    python3 convert_clues_to_js.py /path/to/clues.db .
+
+This produces several files, split to stay under GitHub's 25MB web
+upload limit:
+
+    clues_data_part1.js
+    clues_data_part2.js
+    ... (however many are needed)
+    clues_manifest.js
+
+All of them need to sit in this same folder, next to index.html,
+game.js, and style.css — the exact number of part files depends on how
+much data you have, and game.js reads clues_manifest.js to know which
+ones to load, so it adjusts automatically.

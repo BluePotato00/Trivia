@@ -1,0 +1,1 @@
+window.JEOPARDY_CLUES_PARTS = ["clues_data_part1.js", "clues_data_part2.js", "clues_data_part3.js", "clues_data_part4.js", "clues_data_part5.js", "clues_data_part6.js", "clues_data_part7.js", "clues_data_part8.js"];
