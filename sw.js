@@ -25,7 +25,7 @@ self.addEventListener("activate", (event) => {
   event.waitUntil(
     caches.keys().then((keys) =>
       Promise.all(
-        keys.filter((key) => key !== CACHE_NAME).map((key) => caches.delete(key))
+        keys.filter((key) => key.startsWith("jeopardy-cache-") && key !== CACHE_NAME).map((key) => caches.delete(key))
       )
     )
   );
