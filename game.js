@@ -27,6 +27,25 @@
 
   var els = {};
 
+  function fitClueText() {
+    var area = document.getElementById("clueArea");
+    var MAX_PX = 32;   // starting size for clue text
+    var MIN_PX = 14;   // never go smaller than this
+    var size = MAX_PX;
+  
+    function apply(px) {
+      els.clueText.style.fontSize = px + "px";
+      els.solution.style.fontSize = Math.max(MIN_PX, Math.round(px * 0.85)) + "px";
+    }
+  
+    apply(size);
+    // Shrink 1px at a time until everything fits inside the clue area.
+    while (area.scrollHeight > area.clientHeight && size > MIN_PX) {
+      size -= 1;
+      apply(size);
+    }
+  }
+  
   function loadScript(src) {
     return new Promise(function (resolve, reject) {
       var s = document.createElement("script");
@@ -194,6 +213,8 @@
       } else {
         els.solution.hidden = true;
       }
+      
+      fitClueText();
     }
 
     els.scoreP1.textContent = "Player 1: $" + state.scoreP1;
@@ -233,6 +254,7 @@
   }
 
   function attachHandlers() {
+    window.addEventListener("resize", fitClueText);
     els.buzzP1.addEventListener("click", function () { buzz(1); });
     els.buzzP2.addEventListener("click", function () { buzz(2); });
     els.revealBtn.addEventListener("click", revealSolution);
