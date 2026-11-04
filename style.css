@@ -42,6 +42,8 @@ body {
   padding: 32px;
   text-align: center;
   box-sizing: border-box;
+  min-height: 0;     /* allow it to shrink below its content height */
+  overflow: hidden;
 }
 
 #category {
@@ -81,6 +83,7 @@ body {
   background: var(--blue-dark);
   padding: 16px;
   box-sizing: border-box;
+  min-height: 0;
 }
 
 #scoreRow {
